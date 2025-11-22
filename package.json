@@ -1,0 +1,32 @@
+{
+  "name": "qa-automation-academy-test-suite",
+  "version": "1.0.0",
+  "description": "QA automation test suite to show learned skills in JavaScript and Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MetodiYordanov/QA-Automation-Academy-Test-Suite.git"
+  },
+  "keywords": [
+    "qa",
+    "automation",
+    "testing",
+    "javascript"
+  ],
+  "author": "Metodi Yordanov",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/MetodiYordanov/QA-Automation-Academy-Test-Suite/issues"
+  },
+  "homepage": "https://github.com/MetodiYordanov/QA-Automation-Academy-Test-Suite#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2"
+  }
+}
