@@ -13,7 +13,7 @@ This document outlines the test cases for user login functionality.
 - **Preconditions**: The login page is accessible.
 - **Steps**:
     1. Navigate to the login page.
-    2. Fill in the login form with valid by using email.
+    2. Fill in the login form with valid data by using email.
     3. Submit the login form.
 - **Expected Result**: The user is logged in successfully.
 ## Test Case 3: Failed login - missed field
