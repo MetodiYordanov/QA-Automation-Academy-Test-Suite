@@ -1,19 +1,28 @@
-// Root Playwright configuration for the course repo (ESM)
-import { defineConfig } from "@playwright/test";
+// Root Playwright configuration for the suite repo (ESM)
+import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
    testDir: "tests/",
+   // Parallel execution settings
+   workers: 2, // Use 2 workers
+   retries: 1, // Retry failed tests once
+   // Wether to run tests in parallel within the same file
+   fullyParallel: true,
+   // Timeout per test
    timeout: 30_000,
    use: {
+    // Base options  
     headless: true,
+    trace: "retain-on-failure",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
    },
+   // Reporter
    reporter: [["html"]],
-   //Enable additional browsers later if desired
+   // Cross-browser projects
    projects: [
-    { name: "chromium", use: { browserName: "chromium" } },
-    { name: "firefox", use: { browserName: "firefox" } },
-    { name: "webkit", use: { browserName: "webkit" } },
+    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+    { name: "webkit", use: { ...devices["Desktop Safari"] } },
    ],
 });
