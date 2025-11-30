@@ -9,6 +9,8 @@ export class HomePage extends BasePage {
         this.profileButton = this.page.locator("#nav-link-profile");
         this.newPostButton = this.page.locator("#nav-link-new-post");
         this.logoutButtonWithText = this.page.locator("#nav-link-logout");
+        this.logoutButtonWithoutText = this.page.locator("i").first();
+        this.navBarToggler = this.page.locator(".navbar-toggler");
     }
 
     async goToLoginPage() {
@@ -21,6 +23,10 @@ export class HomePage extends BasePage {
 
     async goToNewPostPage() {
         await this.newPostButton.click();
+    }
+
+    async openNavigationBar() {
+        await this.navBarToggler.click();
     }
 
     async logout() {

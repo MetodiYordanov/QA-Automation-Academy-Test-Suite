@@ -54,5 +54,6 @@ export class ProfilePage extends BasePage {
     // Delete post
     async deletePost() {
         await this.deletePostButton.click();
+        await this.deleteYesButton.click();
     }
 }
