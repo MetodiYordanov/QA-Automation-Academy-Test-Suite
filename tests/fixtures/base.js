@@ -16,8 +16,8 @@ export const test = base.extend({
 
     invalidUser: async ({}, use) => {
         const invalid = {
-            username: "",
-            email: "notanemail",
+            username: "MnogoGotin",
+            email: "mnogo.gotin@mail.com",
             birthDate:"2003-07-19",
             password: "not-a-pass",
             publicInfo: "Invalid user",

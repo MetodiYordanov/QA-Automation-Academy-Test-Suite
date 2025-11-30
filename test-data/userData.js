@@ -34,6 +34,6 @@ export const invalidUsers = [ {
     username: "thePassMaster",
     email: "passMaster@mail.com",
     birthDate: "2000-03-21",
-    password: "thePassMasterPassword123",
-    publicInfo: "long password - registration",
+    password: "thepassmaster123",
+    publicInfo: "no uppercase password - registration",
 } ];

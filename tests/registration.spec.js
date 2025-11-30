@@ -4,7 +4,7 @@ import { LoginPage } from "../pages/LoginPage.js";
 import { RegistrationPage } from "../pages/RegistrationPage.js";
 import { validUsers, invalidUsers } from "../test-data/userData.js";
 
-test("Successful registration", async ({ page, newUser }) => {
+test.beforeEach(async ({page}) => {
     // Navigate to home page
     await page.goto("/posts/all");
     const homePage = new HomePage(page);
@@ -12,6 +12,9 @@ test("Successful registration", async ({ page, newUser }) => {
     await homePage.goToLoginPage();
     const loginPage = new LoginPage(page);
     await loginPage.goToRegisterPage();
+});
+
+test("Successful registration", async ({ page, newUser }) => {
     // Make the registration
     const registrationPage = new RegistrationPage(page);
     await registrationPage.completeRegistration(newUser);
@@ -22,13 +25,6 @@ test("Successful registration", async ({ page, newUser }) => {
 });
 
 test("Failed registration - missed username", async ({ page, newUser }) => {
-    // Navigate to home page
-    await page.goto("/posts/all");
-    const homePage = new HomePage(page);
-    // Going to Register page
-    await homePage.goToLoginPage();
-    const loginPage = new LoginPage(page);
-    await loginPage.goToRegisterPage();
     // Make the registration without enter username
     const registrationPage = new RegistrationPage(page);
     await registrationPage.enterEmail(newUser.email);
@@ -43,13 +39,6 @@ test("Failed registration - missed username", async ({ page, newUser }) => {
 // Tests checking Sign In button is disabled if a field in the form does not match requirements. Using data from userData.js file.
 invalidUsers.forEach((userData) => {
     test(`Failed register: ${userData.publicInfo}`, async ({page}) => {
-        // Navigate to home page
-        await page.goto("/posts/all");
-        const homePage = new HomePage(page);
-        // Going to Register page
-        await homePage.goToLoginPage();
-        const loginPage = new LoginPage(page);
-        await loginPage.goToRegisterPage();
         // Make the registration
         const registrationPage = new RegistrationPage(page);
         await registrationPage.enterUsername(userData.username);
@@ -64,13 +53,6 @@ invalidUsers.forEach((userData) => {
 });
 
 test("Failed registration - username taken", async ({ page, newUser }) => {
-    // Navigate to home page
-    await page.goto("/posts/all");
-    const homePage = new HomePage(page);
-    // Going to Register page
-    await homePage.goToLoginPage();
-    const loginPage = new LoginPage(page);
-    await loginPage.goToRegisterPage();
     // Make the registration
     const registrationPage = new RegistrationPage(page);
     await registrationPage.enterUsername(validUsers[0].username); // Enter username of first user in validUsers array
@@ -87,13 +69,6 @@ test("Failed registration - username taken", async ({ page, newUser }) => {
 });
 
 test("Failed registration - email taken", async ({ page, newUser }) => {
-    // Navigate to home page
-    await page.goto("/posts/all");
-    const homePage = new HomePage(page);
-    // Going to Register page
-    await homePage.goToLoginPage();
-    const loginPage = new LoginPage(page);
-    await loginPage.goToRegisterPage();
     // Make the registration
     const registrationPage = new RegistrationPage(page);
     await registrationPage.enterUsername(newUser.username); 
