@@ -13,23 +13,27 @@ export const validUsers = [ {
 } ];
 
 export const invalidUsers = [ {
-    username: "wrongUser",
+    username: "Use",
     email: "wrongUser@mail.com",
-    password: "",
-    description: "empty password",
+    birthDate: "1986-02-23",
+    password: "testUser123",
+    publicInfo: "short username - registration",
 }, {
-    username: "",
-    email: "testMail@mail.com",
-    password: "testPass123",
-    description: "empty username",
-},{
+    username: "tooLongUsernameToEnter",
+    email: "wrongUser@mail.com",
+    birthDate: "1992-05-12",
+    password: "testUser123",
+    publicInfo: "long username - registration",
+}, {
     username: "hackTester",
-    email: "",
-    password: "hackTester123",
-    description: "empty email",
+    email: "hackTester@mail.com",
+    birthDate: "1975-10-17",
+    password: "hack",
+    publicInfo: "short password - registration",
 }, {
-    username: "",
-    email: "",
-    password: "",
-    description: "empty data user",
+    username: "thePassMaster",
+    email: "passMaster@mail.com",
+    birthDate: "2000-03-21",
+    password: "thePassMasterPassword123",
+    publicInfo: "long password - registration",
 } ];

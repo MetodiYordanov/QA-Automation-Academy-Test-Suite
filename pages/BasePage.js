@@ -14,6 +14,7 @@ export class BasePage {
 
     // Get dialog for successful or failed registration and login.
     async getAlertDialog() {
+        await this.page.getByRole("alertdialog").waitFor({ state: "visible" });
         return this.page.getByRole("alertdialog");
     }
 }

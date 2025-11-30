@@ -11,6 +11,10 @@ export class HomePage extends BasePage {
         this.logoutButtonWithText = this.page.locator("#nav-link-logout");
     }
 
+    async goToLoginPage() {
+        await this.loginButton.click();
+    }
+
     async goToProfilePage() {
         await this.profileButton.click();
     }
