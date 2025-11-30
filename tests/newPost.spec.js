@@ -41,6 +41,8 @@ test("Successful made post - public", async ({page}) => {
     await profilePage.openPost(); // Opens specific post from list of posts
     await expect(profilePage.postUsername).toHaveText(usernameLogged);
     await expect(profilePage.postTitle).toHaveText("Test caption");
+    // Delete post
+    await profilePage.deletePost();
 });
 
 test("Successful made post - private", async ({page}) => {
@@ -51,7 +53,7 @@ test("Successful made post - private", async ({page}) => {
     await newPostPage.setPostPrivate(); // Makes post to be private
     await newPostPage.createPost();
     // Assert post created message
-    const alertDialog = await newPostPage.getAlertDialog();
+    let alertDialog = await newPostPage.getAlertDialog();
     await expect(alertDialog).toBeVisible(); // waits for alert to appear
     await expect(alertDialog).toHaveText("Post created!");
     // Assert user is sent to Profile page
@@ -63,6 +65,8 @@ test("Successful made post - private", async ({page}) => {
     await profilePage.openPost(); // Opens specific post from list of posts
     await expect(profilePage.postUsername).toHaveText(usernameLogged);
     await expect(profilePage.postTitle).toHaveText("Test caption");
+    // Delete post
+    await profilePage.deletePost();
 });
 
 test("Failed post creation - image not uploaded", async ({page}) => {
