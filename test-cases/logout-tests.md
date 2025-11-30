@@ -8,7 +8,7 @@ This document outlines the test cases for user logout functionality.
     2. Click the logout button
     3. Verify message for successful logout is displayed.
 - **Expected Result**: The user is logged out successfully.
-## Test Case 2: Successful logout - standard size browser window
+## Test Case 2: Successful logout - small size browser window
 - **Description**: Verify that a user can successfully logout when browser window is small size.
 - **Preconditions**: User is logged in.
 - **Steps**:
