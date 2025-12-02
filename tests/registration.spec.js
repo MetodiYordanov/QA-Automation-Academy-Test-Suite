@@ -24,14 +24,17 @@ test("Successful registration", async ({ page, newUser }) => {
     await expect(alertDialog).toHaveText("Successful register!");
 });
 
-test("Failed registration - missed username", async ({ page, newUser }) => {
+test.only("Failed registration - missed username", async ({ page, newUser }) => {
     // Make the registration without enter username
     const registrationPage = new RegistrationPage(page);
+    await registrationPage.usernameInput.click();
     await registrationPage.enterEmail(newUser.email);
     await registrationPage.enterDate(newUser.birthDate);
     await registrationPage.enterPassword(newUser.password);
     await registrationPage.confirmPassword(newUser.password);
     await registrationPage.enterPublicInfo(newUser.publicInfo);
+    // Assert field is required label appears
+    await expect(registrationPage.requiredFieldSpan).toBeVisible();
     // Assert Sign In button is disabled
     await expect(registrationPage.signInButton).toBeDisabled();
 });

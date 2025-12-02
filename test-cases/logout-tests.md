@@ -10,7 +10,7 @@ This document outlines the test cases for user logout functionality.
 - **Expected Result**: The user is logged out successfully.
 ## Test Case 2: Successful logout - small size browser window
 - **Description**: Verify that a user can successfully logout when browser window is small size.
-- **Preconditions**: User is logged in.
+- **Preconditions**: User is logged in. Browser window is set to smaller size.
 - **Steps**:
     1. Navigate to the home page.
     2. Click the navigation bar toggle button

@@ -11,6 +11,7 @@ export class RegistrationPage extends BasePage {
         this.confirmPasswordInput = this.page.getByRole("textbox", { name: "Confirm Password", exact: true });
         this.publicInfoTextArea = this.page.getByRole("textbox", { name: "Public info" });
         this.signInButton = this.page.getByRole("button", { name: "Sign in" });
+        this.requiredFieldSpan = this.page.getByText(" This field is required! ");
     }
 
     // ===== INPUTS ACTIONS =====

@@ -1,15 +1,21 @@
 export const validUsers = [ {
     username: "MnogoGotin",
     email: "mnogo.gotin@mail.com",
+    birthDate: "1994-09-15",
     password: "mnogoGotin123",
+    publicInfo: "Valid user",
 }, {
     username: "Buginator",
     email: "buginator1@mail.com",
+    birthDate: "1988-01-06",
     password: "Buginator1",
+    publicInfo: "Find lots of bugs",
 }, {
     username: "Banichko",
     email: "banichko@yahoo.com",
+    birthDate: "1997-11-12",
     password: "Banichko123",
+    publicInfo: "Banitsa with sirene is the best",
 } ];
 
 export const invalidUsers = [ {

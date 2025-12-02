@@ -4,8 +4,8 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
    testDir: "tests/",
    // Parallel execution settings
-   workers: 1, // Use 2 workers
-   //retries: 1, // Retry failed tests once
+   workers: 3, // Use 3 workers
+   retries: 1, // Retry failed tests once
    // Wether to run tests in parallel within the same file
    fullyParallel: true,
    // Timeout per test
@@ -22,9 +22,9 @@ export default defineConfig({
    // Reporter
    reporter: [["html"]],
    // Cross-browser projects
-   // projects: [
-   //  { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-   //  { name: "firefox", use: { ...devices["Desktop Firefox"] } },
-   //  { name: "webkit", use: { ...devices["Desktop Safari"] } },
-   // ],
+   projects: [
+    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+    { name: "webkit", use: { ...devices["Desktop Safari"] } },
+   ],
 });

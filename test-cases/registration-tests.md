@@ -15,7 +15,7 @@ This document outlines the test cases for user registration functionality.
     1. Navigate to the registration page.
     2. Fill in the registration form by missing one of the fields (username, password, email, etc.).
     3. Submit the registration form.
-- **Expected Result**: The user is not able to register.
+- **Expected Result**: The Sign In button is disabled and label for required field displays under the label that is not filled with data.
 ## Test Case 3: Failed registration - field not matching conditions
 - **Description**: Verify that user is not able to register because the filled data does not mach the required conditions.
 - **Preconditions**: The registration page is accessible.
@@ -23,7 +23,7 @@ This document outlines the test cases for user registration functionality.
     1. Navigate to the registration page.
     2. Fill in the registration form by enter data that does not match the conditions (too short username, too long password, etc.)
     3. Submit the registration form.
-- **Expected Result**: The user is not able to register due to enter data that does not match the conditions.
+- **Expected Result**: The user is not able to register due to enter data that does not match the requirements.
 ## Test Case 4: Failed registration - email already used
 - **Description**: Verify that user is not able to register because the filled email was already used.
 - **Preconditions**: The registration page is accessible.
