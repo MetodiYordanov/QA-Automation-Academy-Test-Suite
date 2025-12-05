@@ -24,7 +24,7 @@ test("Successful registration", async ({ page, newUser }) => {
     await expect(alertDialog).toHaveText("Successful register!");
 });
 
-test.only("Failed registration - missed username", async ({ page, newUser }) => {
+test("Failed registration - missed username", async ({ page, newUser }) => {
     // Make the registration without enter username
     const registrationPage = new RegistrationPage(page);
     await registrationPage.usernameInput.click();

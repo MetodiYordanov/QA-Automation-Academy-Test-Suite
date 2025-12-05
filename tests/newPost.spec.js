@@ -23,10 +23,12 @@ test.beforeEach(async ({ page, testUser }) => {
 });
 
 test("Successful made post - public", async ({page}) => {
+    // Create unique post caption
+    const uniqueCaption = `TestPost-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
     // Create new post
     const newPostPage = new NewPostPage(page);
     await newPostPage.uploadImage("./test-data/test-image.jpg");
-    await newPostPage.enterPostCaption("Test caption");
+    await newPostPage.enterPostCaption(uniqueCaption);
     await newPostPage.createPost();
     // Assert post created message
     const alertDialog = await newPostPage.getAlertDialog();
@@ -36,20 +38,19 @@ test("Successful made post - public", async ({page}) => {
     const profilePage = new ProfilePage(page);
     await expect(profilePage.usernameHeading).toBeVisible();
     await expect(profilePage.usernameHeading).toHaveText(usernameLogged);
-    // Assert created post appears in public posts list
     await profilePage.seePublicPosts(); // Opens list of posts that are public
-    await profilePage.openPost(); // Opens specific post from list of posts
+    const postsCount = await profilePage.getNumberOfPosts(); // Get posts count
+    await profilePage.openPost(postsCount); // Opens last created post
+    // Assert created post appears with correct title and creator
     await expect(profilePage.postUsername).toHaveText(usernameLogged);
-    await expect(profilePage.postTitle).toHaveText("Test caption");
-    // Delete post
-    await profilePage.deletePost();
+    await expect(profilePage.postTitle).toHaveText(uniqueCaption);
 });
 
 test("Successful made post - private", async ({page}) => {
     // Create new post
     const newPostPage = new NewPostPage(page);
     await newPostPage.uploadImage("./test-data/test-image.jpg");
-    await newPostPage.enterPostCaption("Test caption");
+    await newPostPage.enterPostCaption("TestCaption");
     await newPostPage.setPostPrivate(); // Makes post to be private
     await newPostPage.createPost();
     // Assert post created message
@@ -60,13 +61,12 @@ test("Successful made post - private", async ({page}) => {
     const profilePage = new ProfilePage(page);
     await expect(profilePage.usernameHeading).toBeVisible();
     await expect(profilePage.usernameHeading).toHaveText(usernameLogged);
-    // Assert created post appears in private posts list
     await profilePage.seePrivatePosts(); // Opens list of posts that are private
-    await profilePage.openPost(); // Opens specific post from list of posts
+    const postsCount = await profilePage.getNumberOfPosts(); // Get posts count
+    await profilePage.openPost(postsCount); // Opens last created post
+    // Assert created post appears in private posts list
     await expect(profilePage.postUsername).toHaveText(usernameLogged);
-    await expect(profilePage.postTitle).toHaveText("Test caption");
-    // Delete post
-    await profilePage.deletePost();
+    await expect(profilePage.postTitle).toHaveText("TestCaption");
 });
 
 test("Failed post creation - image not uploaded", async ({page}) => {

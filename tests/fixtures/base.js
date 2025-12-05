@@ -5,11 +5,11 @@ import { RegistrationPage } from "../../pages/RegistrationPage.js";
 export const test = base.extend({
     testUser: async ({}, use) => {
         const user = {
-            username: "MnogoGotin",
-            email: "mnogo.gotin@mail.com",
-            birthDate: "1986-04-15",
-            password: "mnogoGotin123",
-            publicInfo: "MnogoGotin is the best",
+            username: "Buginator",
+            email: "buginator1@mail.com",
+            birthDate: "1988-01-06",
+            password: "Buginator1",
+            publicInfo: "Finds lots of bugs",
         };
         await use(user);
     },

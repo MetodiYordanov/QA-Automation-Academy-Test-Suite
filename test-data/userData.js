@@ -9,7 +9,7 @@ export const validUsers = [ {
     email: "buginator1@mail.com",
     birthDate: "1988-01-06",
     password: "Buginator1",
-    publicInfo: "Find lots of bugs",
+    publicInfo: "Finds lots of bugs",
 }, {
     username: "Banichko",
     email: "banichko@yahoo.com",
