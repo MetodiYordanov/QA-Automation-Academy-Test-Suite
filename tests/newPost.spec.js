@@ -23,12 +23,10 @@ test.beforeEach(async ({ page, testUser }) => {
 });
 
 test("Successful made post - public", async ({page}) => {
-    // Create unique post caption
-    const uniqueCaption = `TestPost-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
     // Create new post
     const newPostPage = new NewPostPage(page);
     await newPostPage.uploadImage("./test-data/test-image.jpg");
-    await newPostPage.enterPostCaption(uniqueCaption);
+    await newPostPage.enterPostCaption("TestCaption");
     await newPostPage.createPost();
     // Assert post created message
     const alertDialog = await newPostPage.getAlertDialog();
@@ -43,7 +41,7 @@ test("Successful made post - public", async ({page}) => {
     await profilePage.openPost(postsCount); // Opens last created post
     // Assert created post appears with correct title and creator
     await expect(profilePage.postUsername).toHaveText(usernameLogged);
-    await expect(profilePage.postTitle).toHaveText(uniqueCaption);
+    await expect(profilePage.postTitle).toHaveText("TestCaption");
 });
 
 test("Successful made post - private", async ({page}) => {

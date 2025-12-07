@@ -4,7 +4,7 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
    testDir: "tests/",
    // Parallel execution settings
-   workers: 3, // Use 3 workers
+   workers: 2, // Use 2 workers
    retries: 1, // Retry failed tests once
    // Wether to run tests in parallel within the same file
    fullyParallel: true,
